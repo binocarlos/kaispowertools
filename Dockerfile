@@ -16,10 +16,15 @@ RUN add-apt-repository ppa:voronov84/andreyv -y
 RUN apt-get update
 RUN apt-get install -y python-software-properties make software-properties-common curl python g++ git mercurial subversion bzr
 
+# node
 RUN wget -qO /usr/local/bin/nave https://raw.github.com/isaacs/nave/master/nave.sh
 RUN chmod a+x /usr/local/bin/nave
 RUN nave usemain 0.10.29
 
+# go
 RUN curl https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz | tar -C /usr/local -zx
-	./setupgopath.sh
+
+# cleanup
 RUN apt-get clean
+
+ENTRYPOINT ["/bin/bash"]

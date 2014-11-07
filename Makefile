@@ -35,7 +35,17 @@ godeps:
 go: godeps
 	curl https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz | tar -C /usr/local -zx
 	./setupgopath.sh
-	
+
+virtualbox:
+	sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian trusty contrib" >> /etc/apt/sources.list'
+	wget http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
+	sudo apt-get update
+	sudo apt-get install -y virtualbox-4.3
+
+vagrant:
+	cd ~/Downloads && wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.5_x86_64.deb
+	cd ~/Downloads && sudo dpkg -i vagrant_1.6.5_x86_64.deb
+
 docker:
 	curl -sSL https://get.docker.io/ubuntu/ | sudo sh
 	sudo usermod -a -G docker vagrant

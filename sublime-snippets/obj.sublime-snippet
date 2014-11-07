@@ -1,0 +1,63 @@
+<snippet>
+	<content><![CDATA[
+
+/*!
+ * ${1:title}
+ * Copyright(c) 2012 jquarry.com
+ * MIT Licensed
+ */
+
+/**
+ * Module dependencies.
+ */
+
+var _ = require('underscore'),
+    async = require('async');
+
+
+/**
+ * private
+ */
+
+// vars
+var private_var = 0;
+
+// methods
+var private_method = function(self){
+
+  
+}
+
+/**
+ * prototype.
+ */
+
+var proto = {};
+
+proto.init = function(options){
+  
+}
+
+/**
+ * factory
+ */
+
+var factory = function(options){
+	
+	function instance(){}
+	
+	_.extend(instance, proto);
+
+	instance.init(options);
+  
+  return instance;
+}
+
+exports = module.exports = factory;
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>obj</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

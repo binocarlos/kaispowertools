@@ -1,0 +1,27 @@
+{
+	"auto_upgrade_last_run": null,
+	"installed_packages":
+	[
+		"AAAPackageDev",
+		"All Autocomplete",
+		"AngularJS",
+		"BracketHighlighter",
+		"FileDiffs",
+		"Git",
+		"GitGutter",
+		"HTML5",
+		"Jade",
+		"JSONLint",
+		"Markdown Extended",
+		"Markdown Preview",
+		"Node Completions",
+		"nodejsLauncher",
+		"Package Control",
+		"SideBarEnhancements",
+		"SideBarGit",
+		"Terminal",
+		"Theme - Soda",
+		"Theme - Soda SolarizedDark",
+		"Theme - Sodarized"
+	]
+}

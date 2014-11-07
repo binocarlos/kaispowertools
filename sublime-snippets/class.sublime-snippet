@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+var EventEmitter = require('events').EventEmitter
+var util = require('util')
+
+function ${1:MyClass}(){
+	EventEmitter.call(this)
+
+}
+
+util.inherits(${1:MyClass}, EventEmitter)
+
+module.exports = ${1:MyClass}
+
+${1:MyClass}.prototype.methodname = function(){
+
+}		
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>class</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

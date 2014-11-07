@@ -34,3 +34,4 @@ RUN echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr
 
 # cleanup
 RUN apt-get clean
+ENTRYPOINT ["/bin/bash"]

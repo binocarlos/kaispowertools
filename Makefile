@@ -52,13 +52,20 @@ docker:
 builddevbox:
 	docker build -t devbox .
 
-    #-v $(HOME)/projects:/srv/projects:ro \
-    #-v $(HOME):/root:ro \
-    #-v /usr/bin/docker:/usr/bin/docker \
-    #-v /var/run/docker.sock:/var/run/docker.sock \
+    
 
 devbox:
 	docker run -it --rm \
     --name devbox \
     -p 80:80 \
-    devbox sh -c "exec >/dev/tty 2>/dev/tty </dev/tty && /bin/bash"
+    -v $(HOME)/projects:/srv/projects:ro \
+    -v $(HOME)/.gitconfig:/root/.gitconfig:ro \
+    -v $(HOME)/.ssh:/root/.ssh:ro \
+    -v /usr/bin/docker:/usr/bin/docker \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    devbox
+
+    
+    #-v $(HOME):/root:ro \
+    #-v /usr/bin/docker:/usr/bin/docker \
+    #-v /var/run/docker.sock:/var/run/docker.sock \

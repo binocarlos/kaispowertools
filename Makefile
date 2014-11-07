@@ -18,7 +18,6 @@ gitconfig: gitshortcuts
 	git config --global user.name "${GIT_NAME}"
 	git config --global user.email "${GIT_EMAIL}"
 	git config --global credential.helper 'cache --timeout=3600'
-	git config --global push.default simple
 
 gitshortcuts:
 	git config --global alias.ac '!git add -A && git commit'
@@ -49,3 +48,17 @@ vagrant:
 docker:
 	curl -sSL https://get.docker.io/ubuntu/ | sudo sh
 	sudo usermod -a -G docker vagrant
+
+builddevbox:
+	docker build -t devbox .
+
+    #-v $(HOME)/projects:/srv/projects:ro \
+    #-v $(HOME):/root:ro \
+    #-v /usr/bin/docker:/usr/bin/docker \
+    #-v /var/run/docker.sock:/var/run/docker.sock \
+
+devbox:
+	docker run -it --rm \
+    --name devbox \
+    -p 80:80 \
+    devbox sh -c "exec >/dev/tty 2>/dev/tty </dev/tty && /bin/bash"

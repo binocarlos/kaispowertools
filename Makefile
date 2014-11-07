@@ -1,4 +1,7 @@
-all: basicpackages latestgit nodejs go docker devpackages
+all: basicpackages latestgit nodejs go docker devpackages removepackages
+
+removepackages:
+	apt-get remove -y puppet chef
 
 basicpackages:
 	apt-get install -y python-software-properties make software-properties-common curl python g++
@@ -55,17 +58,4 @@ builddevbox:
     
 
 devbox:
-	docker run -it --rm \
-    --name devbox \
-    -p 80:80 \
-    -v $(HOME)/projects:/srv/projects:ro \
-    -v $(HOME)/.gitconfig:/root/.gitconfig:ro \
-    -v $(HOME)/.ssh:/root/.ssh:ro \
-    -v /usr/bin/docker:/usr/bin/docker \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    devbox
-
-    
-    #-v $(HOME):/root:ro \
-    #-v /usr/bin/docker:/usr/bin/docker \
-    #-v /var/run/docker.sock:/var/run/docker.sock \
+	sh ./startdevbox.sh

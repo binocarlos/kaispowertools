@@ -36,7 +36,9 @@ godeps:
 
 go: godeps
 	curl https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz | tar -C /usr/local -zx
-	./setupgopath.sh
+	echo "GOROOT=/usr/local/go" >> /etc/environment
+	echo "GOPATH=/srv/projects/gocode" >> /etc/environment
+	echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/srv/projects/gocode/bin" >> /etc/environment
 
 virtualbox:
 	sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian trusty contrib" >> /etc/apt/sources.list'

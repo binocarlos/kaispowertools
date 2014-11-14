@@ -31,6 +31,8 @@ nodejs:
 	chmod a+x /usr/local/bin/nave
 	nave usemain 0.10.29
 
+nodepackages:
+	npm install -g browserify component@0.19.8
 godeps:
 	apt-get install -y mercurial subversion bzr
 

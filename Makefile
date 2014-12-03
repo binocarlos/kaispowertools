@@ -1,11 +1,9 @@
 all: sslbridge clean basicpackages latestgit nodejs go docker devpackages removepackages nodepackages
 
 clean:
-	rm -f fifo
 
-sslbridge: clean
-	mkfifo fifo
-	sudo nc -l -p 443 <fifo | nc 127.0.0.1 4443 >fifo
+sslbridge:
+	sudo ssh -p 2222 -gNfL 443:localhost:443 vagrant@localhost -i ~/.vagrant.d/insecure_private_key
 
 removepackages:
 	apt-get remove -y puppet chef

@@ -63,3 +63,4 @@ components
 build
 
 .digger
+fifo

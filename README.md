@@ -33,3 +33,15 @@ $ docker run -ti --rm \
     -p 80:80 \
     devbox
 ```
+
+## port forward ssl
+
+You must run vagrant as root to map the SSL port into the vagrant guest.
+
+To avoid this - run vagrant normally and then (as root from host machine):
+
+```
+$ sudo make sslbridge
+```
+
+This maps 443 -> 4443 (which is port forwarded to the vagrant guest)

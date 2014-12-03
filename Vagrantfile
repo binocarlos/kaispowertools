@@ -8,6 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.network "private_network", ip: "192.168.8.120"
   config.vm.network :forwarded_port, guest: 443, host: 443
+  config.vm.network :forwarded_port, guest: 443, host: 4443
   config.vm.network :forwarded_port, guest: 80, host: 8080
   config.vm.hostname = "node1"
   if PROJECTS_HOME

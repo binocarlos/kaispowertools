@@ -11,8 +11,15 @@ removepackages:
 basicpackages:
 	apt-get install -y python-software-properties make software-properties-common curl python g++
 
-devpackages:
-	apt-get install -y phantomjs
+phantomjs:
+	apt-get install bzip2
+	cd /usr/local/share && wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.7-linux-x86_64.tar.bz2
+	cd /usr/local/share && tar xjf phantomjs-1.9.7-linux-x86_64.tar.bz2
+	ln -s /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/local/share/phantomjs
+	ln -s /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs
+	ln -s /usr/local/share/phantomjs-1.9.7-linux-x86_64/bin/phantomjs /usr/bin/phantomjs
+
+devpackages: phantomjs
 	npm install browserify -g
 
 # updates to the latest git so we can use password caching

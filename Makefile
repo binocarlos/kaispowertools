@@ -1,4 +1,4 @@
-all: sslbridge clean basicpackages latestgit nodejs go docker devpackages removepackages nodepackages
+all: clean basicpackages latestgit nodejs go docker devpackages removepackages nodepackages
 
 clean:
 

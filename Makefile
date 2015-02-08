@@ -2,7 +2,8 @@ all: clean basicpackages latestgit nodejs go docker devpackages removepackages n
 
 clean:
 
-
+# this creates an ssl tunnel so we can have port 443 directed to the vagrant machine
+# not needed unless you need to test ssl sites
 sslbridge:
 	sudo ssh -p 2222 -gNfL 443:localhost:443 vagrant@localhost -i ~/.vagrant.d/insecure_private_key
 

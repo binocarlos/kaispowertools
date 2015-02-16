@@ -1,4 +1,4 @@
-all: clean basicpackages latestgit nodejs go docker devpackages removepackages nodepackages
+all: clean basicpackages latestgit nodejs go docker devpackages removepackages nodepackages python
 
 clean:
 
@@ -47,6 +47,9 @@ nodejs:
 
 nodepackages:
 	npm install -g browserify component@0.19.8
+
+python:
+	apt-get install -y python-pip python-dev python-pyasn1 libyaml-dev libffi-dev libssl-dev python-tox
 
 godeps:
 	apt-get install -y mercurial subversion bzr

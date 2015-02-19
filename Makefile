@@ -51,16 +51,9 @@ nodepackages:
 python:
 	apt-get install -y python-pip python-dev python-pyasn1 libyaml-dev libffi-dev libssl-dev python-tox
 
-godeps:
-	apt-get install -y mercurial subversion bzr
-
-go: godeps
-	bash installgo.sh
-	#curl https://storage.googleapis.com/golang/go1.4.1.linux-amd64.tar.gz | tar -C /usr/local -zx
-	#echo "GOTOOLDIR=/home/vagrant/go" >> /etc/environment
-	#echo "GOPATH=/srv/projects/gocode" >> /etc/environment
-	#echo "GOBIN=/srv/projects/gocode/bin" >> /etc/environment
-	#echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/srv/projects/gocode/bin" >> /etc/environment
+go: latestgit
+	git clone https://github.com/binocarlos/go-go-gadget.git /tmp/go-go-gadget
+	cd /tmp/go-go-gadget && sudo bash ./install.sh
 
 virtualbox:
 	sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian trusty contrib" >> /etc/apt/sources.list'

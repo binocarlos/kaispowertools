@@ -14,6 +14,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   if PROJECTS_HOME
     config.vm.synced_folder PROJECTS_HOME, "/srv/projects"
   end
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 2048
+    v.cpus = 2
+  end
   config.vm.provision "shell", inline: <<SCRIPT
 cd /vagrant && make all
 SCRIPT

@@ -19,6 +19,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.cpus = 2
   end
   config.vm.provision "shell", inline: <<SCRIPT
-cd /vagrant && make all
+#cd /vagrant && make all
 SCRIPT
 end

@@ -11,6 +11,7 @@ removepackages:
 	apt-get remove -y puppet chef
 
 basicpackages:
+	apt-get update	
 	apt-get install -y python-software-properties make software-properties-common curl python g++
 
 phantomjs:
@@ -66,7 +67,10 @@ vagrant:
 	cd ~/Downloads && sudo dpkg -i vagrant_1.6.5_x86_64.deb
 
 docker:
-	bash /vagrant/installdocker.sh
+	sudo apt-get update
+	sudo apt-get -y install linux-image-extra-`uname -r`
+	curl -sSL https://get.docker.io/ubuntu/ | sudo sh
+	sudo usermod -a -G docker vagrant
 
 builddevbox:
 	docker build -t devbox .

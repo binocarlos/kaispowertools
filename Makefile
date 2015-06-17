@@ -67,10 +67,7 @@ vagrant:
 	cd ~/Downloads && sudo dpkg -i vagrant_1.6.5_x86_64.deb
 
 docker:
-	sudo apt-get update
-	sudo apt-get -y install linux-image-extra-`uname -r`
-	curl -sSL https://get.docker.io/ubuntu/ | sudo sh
-	sudo usermod -a -G docker vagrant
+	bash installdocker.sh
 
 builddevbox:
 	docker build -t devbox .
